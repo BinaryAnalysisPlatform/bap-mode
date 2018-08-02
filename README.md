@@ -6,7 +6,7 @@ bap-mode is an Emacs major mode for reading and analyzing programs in [BAP](http
 
 ## How to install bap-mode?
 
-bap-mode is avilable on [Melpa](https://melpa.org/). Install it with M-x package-install <RET> bap-mode <RET>.
+bap-mode is avilable on [Melpa](https://melpa.org/). Install it with `M-x package-install <RET> bap-mode <RET>`.
 
 ## How to use bap-mode?
 
