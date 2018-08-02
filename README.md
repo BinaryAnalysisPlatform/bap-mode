@@ -2,7 +2,7 @@
 
 ## What is bap-mode?
 
-bap-mode is an Emacs major mode for reading and analyzing programs in [BAP](https://github.com/BinaryAnalysisPlatform/bap)'s IR. It allows to interact with BAP from within emacs. For example, *bap-open-file* (`C-c o`) opens a file with BAP and emits the IR to an Emacs buffer. bap-mode hightlights the syntax and allows to quickly navigate the code (e.g. `C-c m` to jump to the main function).
+bap-mode is an Emacs major mode for reading and analyzing programs in [BAP](https://github.com/BinaryAnalysisPlatform/bap)'s IR. It allows to interact with BAP from within emacs. For example, *bap-open-file* (`C-c C-b o`) opens a file with BAP and emits the IR to an Emacs buffer. bap-mode hightlights the syntax and allows to quickly navigate the code (e.g. `C-c C-b m` to jump to the main function).
 
 ## How to install bap-mode?
 
