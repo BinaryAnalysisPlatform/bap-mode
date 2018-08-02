@@ -11,11 +11,11 @@ bap-mode is avilable on [Melpa](https://melpa.org/). Install it with M-x package
 ## How to use bap-mode?
 
 The following keybindings are defined per default:
-- `C-c d` *bap-goto-function-definition*: jump to a function definition
-- `C-c l` *bap-goto-label*: jump to a label
-- `C-c m` *bap-goto-main*: jump to main function
-- `C-c o` *bap-open-file*: opens a binary with BAP and emits the IR
-- `C-c p` *bap-open-file-with-extra-pass*: same as above but adds an extra pass before emitting the IR
+- `C-c C-b d` *bap-goto-function-definition*: jump to a function definition
+- `C-c C-b l` *bap-goto-label*: jump to a label
+- `C-c C-b m` *bap-goto-main*: jump to main function
+- `C-c C-b o` *bap-open-file*: opens a binary with BAP and emits the IR
+- `C-c C-b p` *bap-open-file-with-extra-pass*: same as above but adds an extra pass before emitting the IR
 
 ## Future work
 

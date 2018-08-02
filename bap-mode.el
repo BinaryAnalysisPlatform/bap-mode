@@ -1,4 +1,4 @@
-;;; bap-mode.el --- Major-mode for BAP's BIR Intermediate Representation
+;;; bap-mode.el --- Major-mode for BAP's IR
 ;;
 ;; Copyright (c) 2017 Henrik Lissner (since based on emacs-mips-mode)
 ;; Copyright (C) 2018 Thomas Barabosch
@@ -8,7 +8,7 @@
 ;; Created: January 18, 2018
 ;; Modified: August 02, 2018
 ;; Version: 0.1
-;; Keywords: BAP BIR
+;; Keywords: languages
 ;; Homepage: https://github.com/fkie-cad/bap-mode
 ;;
 ;; This file is not part of GNU Emacs.
@@ -16,11 +16,7 @@
 ;;; Commentary:
 ;;
 ;; bap-mode enables you to read and study the intermediate representation (BIR) emitted by the
-;; Binary Analysis Platform (BAP). The mode is based on Henrik Lissner's mips-mode (https://github.com/hlissner/emacs-mips-mode).
-;; Its main features are
-;; - syntax highlighting
-;; - quick navigation (jump to label, jump to function definition)
-;; - opening a file with BAP and showing the emitted BIR code in Emacs
+;; Binary Analysis Platform (BAP).
 ;;
 ;;; Code:
 
@@ -81,31 +77,35 @@
 
 (defvar bap-map
   (let ((map (make-keymap)))
-    (define-key map (kbd "C-c l") 'bap-goto-label)
-    (define-key map (kbd "C-c d") 'bap-goto-function-definition)
-    (define-key map (kbd "C-c m") 'bap-goto-main)
-    (define-key map (kbd "C-c o") 'bap-open-file)
-    (define-key map (kbd "C-c p") 'bap-open-file-with-extra-pass)
+    (define-key map (kbd "C-c C-b l") 'bap-goto-label)
+    (define-key map (kbd "C-c C-b d") 'bap-goto-function-definition)
+    (define-key map (kbd "C-c C-b m") 'bap-goto-main)
+    (define-key map (kbd "C-c C-b o") 'bap-open-file)
+    (define-key map (kbd "C-c C-b p") 'bap-open-file-with-extra-pass)
     map)
-"Keymap for bap-mode")
+"Keymap for ‘bap-mode’.")
 
 (defun bap-goto-label (&optional label)
+  "Jumps to a user-specified label, if no LABEL is provided to the function."
   (interactive)
   (let ((label (or label (read-minibuffer "Go to Label: "))))
-    (beginning-of-buffer)
+    (goto-char (point-min))
 (re-search-forward (format "%s:" label))))
 
 (defun bap-goto-main ()
+  "Jumps to main function."
   (interactive)
   (bap-goto-function-definition "main"))
 
 (defun bap-goto-function-definition (&optional definition)
+  "Jumps to a user-specified function definition, if no DEFINITION is provided to the function."
   (interactive)
   (let ((definition (or definition (read-minibuffer "Go to Function Definition: "))))
-    (beginning-of-buffer)
+    (goto-char (point-min))
 (re-search-forward (format "sub %s(" definition))))
 
 (defun bap-open-file ()
+  "Opens a user-specified file with BAP and emits the IR."
   (interactive)
   (let ((filename (expand-file-name (read-file-name "File to Open: "))))
     (with-output-to-temp-buffer (format "%s.bir" filename)
@@ -114,6 +114,7 @@
       (bap-mode))))
 
 (defun bap-open-file-with-extra-pass ()
+  "Opens a user-specified file with BAP using a user-spcified pass and emits the IR."
   (interactive)
   (let ((filename (expand-file-name (read-file-name "File to Open: ")))
 	(passnames (read-minibuffer "Select passes to run BAP with, e.g. callsites or callsites,run: ")))
