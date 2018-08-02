@@ -32,6 +32,7 @@
     "when"
     "call"
     "return"
+    "noreturn"
     "high"
     "low"
     "in"
@@ -46,11 +47,10 @@
     "pad"
     "extend"
     "el"
-    "FS_BASE"
+    "be"
+    "phi"
+    "ite"
     "unknown"
-    "undefined"
-    "after"
-    "is"
     "interrupt"))
 
 (defconst bap-defs
