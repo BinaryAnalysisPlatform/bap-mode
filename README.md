@@ -1,4 +1,4 @@
-# bap-mode: an Emacs major mode for BAP's intermediate representation
+# bap-mode: an Emacs major mode for BAP's IR
 
 ## What is bap-mode?
 
