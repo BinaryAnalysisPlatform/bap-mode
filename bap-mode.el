@@ -57,6 +57,29 @@
   '("program"
     "sub"))
 
+(defconst bap-operators
+  '(":="
+    "-"
+    "+"
+    "/"
+    "/$"
+    "<<"
+    ">>"
+    "~>>"
+    "&"
+    "|"
+    "^"
+    "="
+    "*"
+    "<>"
+    "<"
+    "<="
+    "<$"
+    "<=$"
+    "%"
+    "<-"
+    "~"))
+
 (defconst bap-font-lock-defaults
   `((
      ;; keywords
@@ -66,7 +89,7 @@
      ;; numbers
      ("\\_<-?[0-9]+\\>\\|0x[a-fA-F0-9]+" . font-lock-constant-face)
      ;; operators and stuff
-     ("<-\\|+\\|-\\|*\\|/\\|~\\|<\\|>\\|:=\\|=\\|&\\|\\^\\|," . font-lock-builtin-face)
+     (,(regexp-opt bap-operators) . font-lock-builtin-face)
      ;; registers
      ("[COSZ]F\\|R[ABCD]X\\|R[DS]I\\|R[BS]P\\|R[0-9]+\\|SP\\|LR\\|[NV]F\\|E[ABCDS][IPX]\\|YMM[0-9]\\|mem" . font-lock-type-face)
      ;; variables
@@ -128,7 +151,7 @@
   "Major mode for reading BIR's BIR intermediate representation."
   (setq font-lock-defaults bap-font-lock-defaults)
   (use-local-map bap-map))
-  
+
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.bir\\'" . bap-mode))
 (add-to-list 'auto-mode-alist '("\\.bap\\'" . bap-mode))
