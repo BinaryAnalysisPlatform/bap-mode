@@ -1,0 +1,526 @@
+00000339: program
+00000004: sub __gmon_start__()
+00000002: 
+00000003: goto mem[EBX + 0x20, el]:u32
+
+
+00000009: sub __libc_csu_fini()
+00000005: 
+00000006: v596 := mem[ESP, el]:u32
+00000007: ESP := ESP + 4
+00000008: return v596
+
+
+0000009d: sub __libc_csu_init()
+0000000a: 
+0000000b: v564 := EBP
+0000000c: ESP := ESP - 4
+0000000d: mem := mem with [ESP, el]:u32 <- v564
+0000000e: v566 := EDI
+0000000f: ESP := ESP - 4
+00000010: mem := mem with [ESP, el]:u32 <- v566
+00000011: v568 := ESI
+00000012: ESP := ESP - 4
+00000013: mem := mem with [ESP, el]:u32 <- v568
+00000014: v570 := EBX
+00000015: ESP := ESP - 4
+00000016: mem := mem with [ESP, el]:u32 <- v570
+00000017: ESP := ESP - 4
+00000018: mem := mem with [ESP, el]:u32 <- 0x6A9
+00000019: call @__x86.get_pc_thunk.bx with return %0000001a
+
+0000001a: 
+0000001d: EBX := EBX + 0x192B
+00000025: ESP := ESP - 0xC
+0000002c: EBP := mem[ESP + 0x20, el]:u32
+0000002d: ESI := EBX + -0xFC
+0000002e: ESP := ESP - 4
+0000002f: mem := mem with [ESP, el]:u32 <- 0x6C1
+00000030: call @_init with return %00000031
+
+00000031: 
+00000032: EAX := EBX + -0x100
+00000034: ESI := ESI - EAX
+0000003c: ESI := ESI ~>> 2
+00000043: v642 := ESI
+00000049: ZF := 0 = v642
+0000004a: when ZF goto %00000088
+0000004b: goto %0000004c
+
+0000004c: 
+0000004d: EDI := 0
+00000054: ESI := ESI
+00000055: goto %00000056
+
+00000056: 
+00000058: ESP := ESP - 4
+0000005f: v832 := mem[ESP + 0x2C, el]:u32
+00000060: ESP := ESP - 4
+00000061: mem := mem with [ESP, el]:u32 <- v832
+00000062: v834 := mem[ESP + 0x2C, el]:u32
+00000063: ESP := ESP - 4
+00000064: mem := mem with [ESP, el]:u32 <- v834
+00000065: v836 := EBP
+00000066: ESP := ESP - 4
+00000067: mem := mem with [ESP, el]:u32 <- v836
+00000068: v838 := mem[EBX + (EDI << 2) + -0x100, el]:u32
+00000069: ESP := ESP - 4
+0000006a: mem := mem with [ESP, el]:u32 <- 0x6EB
+0000006b: call v838 with return %0000006c
+
+0000006c: 
+0000006f: EDI := EDI + 1
+00000078: ESP := ESP + 0x10
+0000007f: v536 := ESI - EDI
+00000085: ZF := 0 = v536
+00000086: when ~ZF goto %00000056
+00000087: goto %00000088
+
+00000088: 
+0000008b: ESP := ESP + 0xC
+00000092: EBX := mem[ESP, el]:u32
+00000093: ESP := ESP + 4
+00000094: ESI := mem[ESP, el]:u32
+00000095: ESP := ESP + 4
+00000096: EDI := mem[ESP, el]:u32
+00000097: ESP := ESP + 4
+00000098: EBP := mem[ESP, el]:u32
+00000099: ESP := ESP + 4
+0000009a: v826 := mem[ESP, el]:u32
+0000009b: ESP := ESP + 4
+0000009c: return v826
+
+
+000000a0: sub __libc_start_main(__libc_start_main_main, __libc_start_main_arg2, __libc_start_main_arg3, __libc_start_main_auxv, __libc_start_main_result)
+0000033a: __libc_start_main_main :: in u32 = mem[ESP + 4, el]:u32
+0000033b: __libc_start_main_arg2 :: in u32 = mem[ESP + 8, el]:u32
+0000033c: __libc_start_main_arg3 :: in out u32 = mem[ESP + 0xC, el]:u32
+0000033d: __libc_start_main_auxv :: in out u32 = mem[ESP + 0x10, el]:u32
+0000033e: __libc_start_main_result :: out u32 = EAX
+0000009e: 
+0000009f: goto mem[EBX + 0x14, el]:u32
+
+
+000000a6: sub __x86.get_pc_thunk.ax()
+000000a1: 
+000000a2: EAX := mem[ESP, el]:u32
+000000a3: v556 := mem[ESP, el]:u32
+000000a4: ESP := ESP + 4
+000000a5: return v556
+
+
+000000ac: sub __x86.get_pc_thunk.bx()
+000000a7: 
+000000a8: EBX := mem[ESP, el]:u32
+000000a9: v818 := mem[ESP, el]:u32
+000000aa: ESP := ESP + 4
+000000ab: return v818
+
+
+000000d4: sub _fini()
+000000ad: 
+000000ae: v718 := EBX
+000000af: ESP := ESP - 4
+000000b0: mem := mem with [ESP, el]:u32 <- v718
+000000b2: ESP := ESP - 8
+000000b9: ESP := ESP - 4
+000000ba: mem := mem with [ESP, el]:u32 <- 0x70D
+000000bb: call @__x86.get_pc_thunk.bx with return %000000bc
+
+000000bc: 
+000000bf: EBX := EBX + 0x18C7
+000000c8: ESP := ESP + 8
+000000cf: EBX := mem[ESP, el]:u32
+000000d0: ESP := ESP + 4
+000000d1: v852 := mem[ESP, el]:u32
+000000d2: ESP := ESP + 4
+000000d3: return v852
+
+
+0000010b: sub _init()
+000000d5: 
+000000d6: v654 := EBX
+000000d7: ESP := ESP - 4
+000000d8: mem := mem with [ESP, el]:u32 <- v654
+000000da: ESP := ESP - 8
+000000e1: ESP := ESP - 4
+000000e2: mem := mem with [ESP, el]:u32 <- 0x3A1
+000000e3: call @__x86.get_pc_thunk.bx with return %000000e4
+
+000000e4: 
+000000e7: EBX := EBX + 0x1C33
+000000ee: EAX := mem[EBX + 0x20, el]:u32
+000000ef: v730 := EAX
+000000f5: ZF := 0 = v730
+000000f6: when ZF goto %000000fc
+000000f7: goto %000000f8
+
+000000f8: 
+000000f9: ESP := ESP - 4
+000000fa: mem := mem with [ESP, el]:u32 <- 0x3B6
+000000fb: call @__gmon_start__ with return %000000fc
+
+000000fc: 
+000000ff: ESP := ESP + 8
+00000106: EBX := mem[ESP, el]:u32
+00000107: ESP := ESP + 4
+00000108: v866 := mem[ESP, el]:u32
+00000109: ESP := ESP + 4
+0000010a: return v866
+
+
+00000149: sub _start()
+0000010c: 
+0000010d: EBP := 0
+00000114: ESI := mem[ESP, el]:u32
+00000115: ESP := ESP + 4
+00000116: ECX := ESP
+00000117: ESP := ESP & 0xFFFFFFF0
+0000011e: v648 := EAX
+0000011f: ESP := ESP - 4
+00000120: mem := mem with [ESP, el]:u32 <- v648
+00000121: v650 := ESP
+00000122: ESP := ESP - 4
+00000123: mem := mem with [ESP, el]:u32 <- v650
+00000124: v652 := EDX
+00000125: ESP := ESP - 4
+00000126: mem := mem with [ESP, el]:u32 <- v652
+00000127: ESP := ESP - 4
+00000128: mem := mem with [ESP, el]:u32 <- 0x420
+00000129: call @sub_442 with return %0000012a
+
+0000012a: 
+0000012d: EBX := EBX + 0x1BB4
+00000134: EAX := EBX + -0x18D4
+00000135: v808 := EAX
+00000136: ESP := ESP - 4
+00000137: mem := mem with [ESP, el]:u32 <- v808
+00000138: EAX := EBX + -0x1934
+00000139: v810 := EAX
+0000013a: ESP := ESP - 4
+0000013b: mem := mem with [ESP, el]:u32 <- v810
+0000013c: v812 := ECX
+0000013d: ESP := ESP - 4
+0000013e: mem := mem with [ESP, el]:u32 <- v812
+0000013f: v814 := ESI
+00000140: ESP := ESP - 4
+00000141: mem := mem with [ESP, el]:u32 <- v814
+00000142: v816 := mem[EBX + 0x24, el]:u32
+00000143: ESP := ESP - 4
+00000144: mem := mem with [ESP, el]:u32 <- v816
+00000145: ESP := ESP - 4
+00000146: mem := mem with [ESP, el]:u32 <- 0x441
+00000147: call @__libc_start_main with return %00000148
+
+00000148: 
+
+
+000001c2: sub for_loop()
+0000014a: 
+0000014b: v696 := EBP
+0000014c: ESP := ESP - 4
+0000014d: mem := mem with [ESP, el]:u32 <- v696
+0000014e: EBP := ESP
+0000014f: v698 := EBX
+00000150: ESP := ESP - 4
+00000151: mem := mem with [ESP, el]:u32 <- v698
+00000153: ESP := ESP - 0x14
+0000015a: ESP := ESP - 4
+0000015b: mem := mem with [ESP, el]:u32 <- 0x5A3
+0000015c: call @__x86.get_pc_thunk.bx with return %0000015d
+
+0000015d: 
+00000160: EBX := EBX + 0x1A31
+00000168: ESP := ESP - 0xC
+00000170: ESP := ESP - 4
+00000171: mem := mem with [ESP, el]:u32 <- 0x59
+00000172: ESP := ESP - 4
+00000173: mem := mem with [ESP, el]:u32 <- 0x5B3
+00000174: call @malloc with return %00000175
+
+00000175: 
+00000178: ESP := ESP + 0x10
+0000017f: mem := mem with [EBP + 0xFFFFFFEC, el]:u32 <- EAX
+00000180: mem := mem with [EBP + 0xFFFFFFF4, el]:u32 <- 0x22
+00000181: mem := mem with [EBP + 0xFFFFFFF0, el]:u32 <- 0
+00000182: goto %00000183
+
+00000183: 
+00000184: v746 := mem[EBP + 0xFFFFFFF0, el]:u32 - 0x63
+00000186: OF := high:1[(mem[EBP + 0xFFFFFFF0, el]:u32 ^ 0x63) & (mem[EBP + 0xFFFFFFF0, el]:u32 ^ v746)]
+00000189: SF := high:1[v746]
+0000018a: ZF := 0 = v746
+0000018b: when ZF | SF ^ OF goto %000001ad
+0000018c: goto %0000018d
+
+0000018d: 
+0000018f: ESP := ESP - 0xC
+00000196: v554 := mem[EBP + 0xFFFFFFEC, el]:u32
+00000197: ESP := ESP - 4
+00000198: mem := mem with [ESP, el]:u32 <- v554
+00000199: ESP := ESP - 4
+0000019a: mem := mem with [ESP, el]:u32 <- 0x5E4
+0000019b: call @free with return %0000019c
+
+0000019c: 
+0000019f: ESP := ESP + 0x10
+000001a6: EBX := mem[EBP + 0xFFFFFFFC, el]:u32
+000001a7: ESP := EBP
+000001a8: EBP := mem[ESP, el]:u32
+000001a9: ESP := ESP + 4
+000001aa: v674 := mem[ESP, el]:u32
+000001ab: ESP := ESP + 4
+000001ac: return v674
+
+000001ad: 
+000001ae: EAX := mem[EBP + 0xFFFFFFF0, el]:u32
+000001b0: v751 := EAX
+000001b1: mem := mem
+                     with [EBP + 0xFFFFFFF4, el]:u32 <- mem[EBP + 0xFFFFFFF4, el]:u32 + v751
+000001ba: mem := mem
+                     with [EBP + 0xFFFFFFF0, el]:u32 <- mem[EBP + 0xFFFFFFF0, el]:u32 + 1
+000001c1: goto %00000183
+
+
+000001c5: sub free(free_ptr)
+0000033f: free_ptr :: in out u32 = mem[ESP + 4, el]:u32
+000001c3: 
+000001c4: goto mem[EBX + 0xC, el]:u32
+
+
+00000229: sub if_statement()
+000001c6: 
+000001c7: v618 := EBP
+000001c8: ESP := ESP - 4
+000001c9: mem := mem with [ESP, el]:u32 <- v618
+000001ca: EBP := ESP
+000001cb: v620 := EBX
+000001cc: ESP := ESP - 4
+000001cd: mem := mem with [ESP, el]:u32 <- v620
+000001cf: ESP := ESP - 0x14
+000001d6: ESP := ESP - 4
+000001d7: mem := mem with [ESP, el]:u32 <- 0x559
+000001d8: call @__x86.get_pc_thunk.bx with return %000001d9
+
+000001d9: 
+000001dc: EBX := EBX + 0x1A7B
+000001e4: ESP := ESP - 0xC
+000001ec: ESP := ESP - 4
+000001ed: mem := mem with [ESP, el]:u32 <- 0x59
+000001ee: ESP := ESP - 4
+000001ef: mem := mem with [ESP, el]:u32 <- 0x569
+000001f0: call @malloc with return %000001f1
+
+000001f1: 
+000001f4: ESP := ESP + 0x10
+000001fb: mem := mem with [EBP + 0xFFFFFFF4, el]:u32 <- EAX
+000001fc: mem := mem with [EBP + 0xFFFFFFF0, el]:u32 <- 2
+000001fd: v786 := mem[EBP + 0xFFFFFFF0, el]:u32 - 3
+000001ff: OF := high:1[(mem[EBP + 0xFFFFFFF0, el]:u32 ^ 3) & (mem[EBP + 0xFFFFFFF0, el]:u32 ^ v786)]
+00000202: SF := high:1[v786]
+00000203: ZF := 0 = v786
+00000204: when ~(ZF | SF ^ OF) goto %00000209
+00000205: goto %00000206
+
+00000206: 
+00000207: mem := mem with [EBP + 0xFFFFFFF0, el]:u32 <- 0x21
+00000208: goto %00000209
+
+00000209: 
+0000020b: ESP := ESP - 0xC
+00000212: v522 := mem[EBP + 0xFFFFFFF4, el]:u32
+00000213: ESP := ESP - 4
+00000214: mem := mem with [ESP, el]:u32 <- v522
+00000215: ESP := ESP - 4
+00000216: mem := mem with [ESP, el]:u32 <- 0x58E
+00000217: call @free with return %00000218
+
+00000218: 
+0000021b: ESP := ESP + 0x10
+00000222: EBX := mem[EBP + 0xFFFFFFFC, el]:u32
+00000223: ESP := EBP
+00000224: EBP := mem[ESP, el]:u32
+00000225: ESP := ESP + 4
+00000226: v632 := mem[ESP, el]:u32
+00000227: ESP := ESP + 4
+00000228: return v632
+
+
+0000026f: sub main(main_argc, main_argv, main_result)
+00000340: main_argc :: in u32 = mem[ESP + 4, el]:u32
+00000341: main_argv :: in out u32 = mem[ESP + 8, el]:u32
+00000342: main_result :: out u32 = EAX
+0000022a: 
+0000022b: ECX := ESP + 4
+0000022c: ESP := ESP & 0xFFFFFFF0
+00000233: v736 := mem[ECX + 0xFFFFFFFC, el]:u32
+00000234: ESP := ESP - 4
+00000235: mem := mem with [ESP, el]:u32 <- v736
+00000236: v738 := EBP
+00000237: ESP := ESP - 4
+00000238: mem := mem with [ESP, el]:u32 <- v738
+00000239: EBP := ESP
+0000023a: v740 := ECX
+0000023b: ESP := ESP - 4
+0000023c: mem := mem with [ESP, el]:u32 <- v740
+0000023e: ESP := ESP - 4
+00000245: ESP := ESP - 4
+00000246: mem := mem with [ESP, el]:u32 <- 0x674
+00000247: call @__x86.get_pc_thunk.ax with return %00000248
+
+00000248: 
+0000024b: EAX := EAX + 0x1960
+00000252: ESP := ESP - 4
+00000253: mem := mem with [ESP, el]:u32 <- 0x67E
+00000254: call @if_statement with return %00000255
+
+00000255: 
+00000256: ESP := ESP - 4
+00000257: mem := mem with [ESP, el]:u32 <- 0x683
+00000258: call @for_loop with return %00000259
+
+00000259: 
+0000025a: ESP := ESP - 4
+0000025b: mem := mem with [ESP, el]:u32 <- 0x688
+0000025c: call @nested_for_loop with return %0000025d
+
+0000025d: 
+00000260: ESP := ESP + 4
+00000267: ECX := mem[ESP, el]:u32
+00000268: ESP := ESP + 4
+00000269: EBP := mem[ESP, el]:u32
+0000026a: ESP := ESP + 4
+0000026b: ESP := ECX + 0xFFFFFFFC
+0000026c: v604 := mem[ESP, el]:u32
+0000026d: ESP := ESP + 4
+0000026e: return v604
+
+
+00000272: sub malloc(malloc_size, malloc_result)
+00000343: malloc_size :: in u32 = mem[ESP + 4, el]:u32
+00000344: malloc_result :: out u32 = EAX
+00000270: 
+00000271: goto mem[EBX + 0x10, el]:u32
+
+
+0000030d: sub nested_for_loop()
+00000273: 
+00000274: v772 := EBP
+00000275: ESP := ESP - 4
+00000276: mem := mem with [ESP, el]:u32 <- v772
+00000277: EBP := ESP
+00000278: v774 := EBX
+00000279: ESP := ESP - 4
+0000027a: mem := mem with [ESP, el]:u32 <- v774
+0000027c: ESP := ESP - 0x14
+00000283: ESP := ESP - 4
+00000284: mem := mem with [ESP, el]:u32 <- 0x5F9
+00000285: call @__x86.get_pc_thunk.bx with return %00000286
+
+00000286: 
+00000289: EBX := EBX + 0x19DB
+00000291: ESP := ESP - 0xC
+00000299: ESP := ESP - 4
+0000029a: mem := mem with [ESP, el]:u32 <- 0x59
+0000029b: ESP := ESP - 4
+0000029c: mem := mem with [ESP, el]:u32 <- 0x609
+0000029d: call @malloc with return %0000029e
+
+0000029e: 
+000002a1: ESP := ESP + 0x10
+000002a8: mem := mem with [EBP + 0xFFFFFFE8, el]:u32 <- EAX
+000002a9: mem := mem with [EBP + 0xFFFFFFF4, el]:u32 <- 0x22
+000002aa: mem := mem with [EBP + 0xFFFFFFF0, el]:u32 <- 0
+000002ab: goto %000002ac
+
+000002ac: 
+000002ad: v692 := mem[EBP + 0xFFFFFFF0, el]:u32 - 0x63
+000002af: OF := high:1[(mem[EBP + 0xFFFFFFF0, el]:u32 ^ 0x63) & (mem[EBP + 0xFFFFFFF0, el]:u32 ^ v692)]
+000002b2: SF := high:1[v692]
+000002b3: ZF := 0 = v692
+000002b4: when ZF | SF ^ OF goto %000002d6
+000002b5: goto %000002b6
+
+000002b6: 
+000002b8: ESP := ESP - 0xC
+000002bf: v548 := mem[EBP + 0xFFFFFFE8, el]:u32
+000002c0: ESP := ESP - 4
+000002c1: mem := mem with [ESP, el]:u32 <- v548
+000002c2: ESP := ESP - 4
+000002c3: mem := mem with [ESP, el]:u32 <- 0x655
+000002c4: call @free with return %000002c5
+
+000002c5: 
+000002c8: ESP := ESP + 0x10
+000002cf: EBX := mem[EBP + 0xFFFFFFFC, el]:u32
+000002d0: ESP := EBP
+000002d1: EBP := mem[ESP, el]:u32
+000002d2: ESP := ESP + 4
+000002d3: v666 := mem[ESP, el]:u32
+000002d4: ESP := ESP + 4
+000002d5: return v666
+
+000002d6: 
+000002d7: mem := mem with [EBP + 0xFFFFFFEC, el]:u32 <- 0
+000002d8: goto %000002d9
+
+000002d9: 
+000002da: v540 := mem[EBP + 0xFFFFFFEC, el]:u32 - 0xC7
+000002dc: OF := high:1[(mem[EBP + 0xFFFFFFEC, el]:u32 ^ 0xC7) & (mem[EBP + 0xFFFFFFEC, el]:u32 ^ v540)]
+000002df: SF := high:1[v540]
+000002e0: ZF := 0 = v540
+000002e1: when ZF | SF ^ OF goto %000002ee
+000002e2: goto %000002e3
+
+000002e3: 
+000002e6: mem := mem
+                     with [EBP + 0xFFFFFFF0, el]:u32 <- mem[EBP + 0xFFFFFFF0, el]:u32 + 1
+000002ed: goto %000002ac
+
+000002ee: 
+000002ef: EDX := mem[EBP + 0xFFFFFFF0, el]:u32
+000002f0: EAX := mem[EBP + 0xFFFFFFEC, el]:u32
+000002f2: v573 := EDX
+000002f3: EAX := EAX + v573
+000002fb: v579 := EAX
+000002fc: mem := mem
+                     with [EBP + 0xFFFFFFF4, el]:u32 <- mem[EBP + 0xFFFFFFF4, el]:u32 + v579
+00000305: mem := mem
+                     with [EBP + 0xFFFFFFEC, el]:u32 <- mem[EBP + 0xFFFFFFEC, el]:u32 + 1
+0000030c: goto %000002d9
+
+
+00000313: sub sub_442()
+0000030e: 
+0000030f: EBX := mem[ESP, el]:u32
+00000310: v704 := mem[ESP, el]:u32
+00000311: ESP := ESP + 4
+00000312: return v704
+
+
+00000338: sub sub_485()
+00000314: 
+00000315: v762 := EBP
+00000316: ESP := ESP - 4
+00000317: mem := mem with [ESP, el]:u32 <- v762
+00000318: EBP := ESP
+0000031a: ESP := ESP - 0x14
+00000321: v768 := ECX
+00000322: ESP := ESP - 4
+00000323: mem := mem with [ESP, el]:u32 <- v768
+00000324: v770 := EAX
+00000325: ESP := ESP - 4
+00000326: mem := mem with [ESP, el]:u32 <- 0x48E
+00000327: call v770 with return %00000328
+
+00000328: 
+0000032b: ESP := ESP + 0x10
+00000332: ESP := EBP
+00000333: EBP := mem[ESP, el]:u32
+00000334: ESP := ESP + 4
+00000335: v516 := mem[ESP, el]:u32
+00000336: ESP := ESP + 4
+00000337: return v516
+
+
+

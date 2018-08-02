@@ -1,0 +1,445 @@
+000001ce: program
+00000004: sub __libc_csu_fini()
+00000002: 
+00000003: return LR
+
+
+00000058: sub __libc_csu_init()
+00000005: 
+00000006: v735 := SP
+00000007: mem := mem with [v735 + 0xFFFFFFFC, el]:u32 <- LR
+00000008: mem := mem with [v735 + 0xFFFFFFF8, el]:u32 <- R10
+00000009: mem := mem with [v735 + 0xFFFFFFF4, el]:u32 <- R9
+0000000a: mem := mem with [v735 + 0xFFFFFFF0, el]:u32 <- R8
+0000000b: mem := mem with [v735 + 0xFFFFFFEC, el]:u32 <- R7
+0000000c: mem := mem with [v735 + 0xFFFFFFE8, el]:u32 <- R6
+0000000d: mem := mem with [v735 + 0xFFFFFFE4, el]:u32 <- R5
+0000000e: mem := mem with [v735 + 0xFFFFFFE0, el]:u32 <- R4
+0000000f: SP := SP - 0x20
+00000010: R5 := mem[0x105F0, el]:u32
+00000011: R9 := mem[0x105F4, el]:u32
+00000014: R5 := 0x105AC + R5
+00000017: R9 := 0x105B0 + R9
+0000001a: R5 := R5 - R9
+0000001b: R6 := R0
+0000001c: R7 := R1
+0000001d: R8 := R2
+0000001e: LR := 0x105C0
+0000001f: call @_init with return %00000020
+
+00000020: 
+00000021: v913 := R5
+00000022: R5 := v913 ~>> 2
+00000025: ZF := R5 = 0
+00000034: when ZF goto %00000026
+00000033: goto %00000027
+
+00000026: 
+00000029: v915 := SP
+0000002a: R4 := mem[v915, el]:u32
+0000002b: R5 := mem[v915 + 4, el]:u32
+0000002c: R6 := mem[v915 + 8, el]:u32
+0000002d: R7 := mem[v915 + 0xC, el]:u32
+0000002e: R8 := mem[v915 + 0x10, el]:u32
+0000002f: R9 := mem[v915 + 0x14, el]:u32
+00000030: R10 := mem[v915 + 0x18, el]:u32
+00000031: SP := SP + 0x20
+00000032: goto mem[v915 + 0x1C, el]:u32
+
+00000027: 
+00000035: goto %00000036
+
+00000036: 
+00000037: R4 := 0
+00000038: goto %00000039
+
+00000039: 
+0000003a: R3 := mem[R9 + (R4 << 2), el]:u32
+0000003b: R2 := R8
+0000003e: R4 := R4 + 1
+0000003f: R1 := R7
+00000040: R0 := R6
+00000041: LR := 0x105E4
+00000042: call R3 with return %00000043
+
+00000043: 
+00000046: v931 := R5 - R4
+0000004a: ZF := v931 = 0
+0000004b: when ~ZF goto %00000039
+0000004c: goto %0000004d
+
+0000004d: 
+0000004e: v853 := SP
+0000004f: R4 := mem[v853, el]:u32
+00000050: R5 := mem[v853 + 4, el]:u32
+00000051: R6 := mem[v853 + 8, el]:u32
+00000052: R7 := mem[v853 + 0xC, el]:u32
+00000053: R8 := mem[v853 + 0x10, el]:u32
+00000054: R9 := mem[v853 + 0x14, el]:u32
+00000055: R10 := mem[v853 + 0x18, el]:u32
+00000056: SP := SP + 0x20
+00000057: goto mem[v853 + 0x1C, el]:u32
+
+
+00000063: sub __libc_start_main(__libc_start_main_main, __libc_start_main_arg2, __libc_start_main_arg3, __libc_start_main_auxv, __libc_start_main_result)
+000001cf: __libc_start_main_main :: in u32 = R0
+000001d0: __libc_start_main_arg2 :: in u32 = R1
+000001d1: __libc_start_main_arg3 :: in out u32 = R2
+000001d2: __libc_start_main_auxv :: in out u32 = R3
+000001d3: __libc_start_main_result :: out u32 = R0
+00000059: 
+0000005c: R12 := 0x10920
+0000005f: R12 := R12 + 0xA10
+00000060: v1051 := R12
+00000062: goto mem[v1051 + 0xCF4, el]:u32
+
+
+00000070: sub _init()
+00000064: 
+00000065: v713 := SP
+00000066: mem := mem with [v713 + 0xFFFFFFFC, el]:u32 <- LR
+00000067: mem := mem with [v713 + 0xFFFFFFF8, el]:u32 <- R3
+00000068: SP := SP - 8
+00000069: LR := 0x102E8
+0000006a: call @call_weak_fn with return %0000006b
+
+0000006b: 
+0000006c: v959 := SP
+0000006d: R3 := mem[v959, el]:u32
+0000006e: SP := SP + 8
+0000006f: goto mem[v959 + 4, el]:u32
+
+
+0000009b: sub _start()
+00000071: 
+00000072: R11 := 0
+00000073: LR := 0
+00000074: R1 := mem[SP, el]:u32
+00000075: SP := SP + 4
+00000076: R2 := SP
+00000077: mem := mem with [SP + 0xFFFFFFFC, el]:u32 <- R2
+00000078: SP := SP + 0xFFFFFFFC
+00000079: mem := mem with [SP + 0xFFFFFFFC, el]:u32 <- R0
+0000007a: SP := SP + 0xFFFFFFFC
+0000007b: R12 := mem[0x1036C, el]:u32
+0000007c: mem := mem with [SP + 0xFFFFFFFC, el]:u32 <- R12
+0000007d: SP := SP + 0xFFFFFFFC
+0000007e: R0 := mem[0x10370, el]:u32
+0000007f: R3 := mem[0x10374, el]:u32
+00000080: LR := 0x10368
+00000081: call @__libc_start_main with return %00000082
+
+00000082: 
+00000083: LR := 0x1036C
+00000084: call @abort with return %00000085
+
+00000085: 
+0000008d: when ZF goto %00000086
+0000008c: goto %00000087
+
+00000086: 
+00000089: mem := mem with [R1, el]:u32 <- R1
+0000008a: mem := mem with [R1 + 4, el]:u32 <- R0
+0000008b: R1 := R1 + 0xFFFFFFFF * R8
+00000088: goto %00000087
+
+00000087: 
+00000094: when ZF goto %0000008e
+00000093: goto %0000008f
+
+0000008e: 
+00000091: v941 := R12
+00000092: R0 := R1 & (v941 >> R5 | v941 << 0x20 - R5)
+00000090: goto %0000008f
+
+0000008f: 
+0000009a: when ZF goto %00000095
+00000099: goto %00000096
+
+00000095: 
+00000098: R1 := R8 * R5
+00000097: goto %00000096
+
+00000096: 
+
+
+000000a6: sub abort()
+0000009c: 
+0000009f: R12 := 0x10938
+000000a2: R12 := R12 + 0xA10
+000000a3: v1065 := R12
+000000a5: goto mem[v1065 + 0xCE4, el]:u32
+
+
+000000c3: sub call_weak_fn()
+000000a7: 
+000000a8: R3 := mem[0x10394, el]:u32
+000000a9: R2 := mem[0x10398, el]:u32
+000000ac: R3 := 0x10388 + R3
+000000ad: R2 := mem[R3 + R2, el]:u32
+000000b0: v973 := R2
+000000b4: ZF := v973 = 0
+000000b5: when ZF return LR
+000000b6: goto %000000b7
+
+000000b7: 
+000000b8: goto %000000b9
+
+000000b9: 
+000000bc: R12 := 0x1092C
+000000bf: R12 := R12 + 0xA10
+000000c0: v1033 := R12
+000000c2: goto mem[v1033 + 0xCEC, el]:u32
+
+
+000000ff: sub for_loop()
+000000c4: 
+000000c5: v785 := SP
+000000c6: mem := mem with [v785 + 0xFFFFFFFC, el]:u32 <- LR
+000000c7: mem := mem with [v785 + 0xFFFFFFF8, el]:u32 <- R11
+000000c8: SP := SP - 8
+000000cb: R11 := SP + 4
+000000ce: SP := SP - 0x10
+000000cf: R0 := 0x59
+000000d0: LR := 0x1048C
+000000d1: call @malloc with return %000000d2
+
+000000d2: 
+000000d3: R3 := R0
+000000d4: mem := mem with [R11 + 0xFFFFFFF0, el]:u32 <- R3
+000000d5: R3 := 0x22
+000000d6: mem := mem with [R11 + 0xFFFFFFF8, el]:u32 <- R3
+000000d7: R3 := 0
+000000d8: mem := mem with [R11 + 0xFFFFFFF4, el]:u32 <- R3
+000000d9: goto %000000da
+
+000000da: 
+000000db: R3 := mem[R11 + 0xFFFFFFF4, el]:u32
+000000dc: v881 := R3
+000000de: v879 := R3 - 0x63
+000000e0: VF := high:1[(v881 ^ 0x63) & (v881 ^ v879)]
+000000e1: NF := high:1[v879]
+000000e2: ZF := v879 = 0
+000000e3: when ZF | NF <> VF goto %000000f2
+000000e4: goto %000000e5
+
+000000e5: 
+000000e6: R0 := mem[R11 + 0xFFFFFFF0, el]:u32
+000000e7: LR := 0x104D8
+000000e8: call @free with return %000000e9
+
+000000e9: 
+000000ea: R0 := R0
+000000ed: SP := R11 - 4
+000000ee: v723 := SP
+000000ef: R11 := mem[v723, el]:u32
+000000f0: SP := SP + 8
+000000f1: goto mem[v723 + 4, el]:u32
+
+000000f2: 
+000000f3: R2 := mem[R11 + 0xFFFFFFF8, el]:u32
+000000f4: R3 := mem[R11 + 0xFFFFFFF4, el]:u32
+000000f7: R3 := R2 + R3
+000000f8: mem := mem with [R11 + 0xFFFFFFF8, el]:u32 <- R3
+000000f9: R3 := mem[R11 + 0xFFFFFFF4, el]:u32
+000000fc: R3 := R3 + 1
+000000fd: mem := mem with [R11 + 0xFFFFFFF4, el]:u32 <- R3
+000000fe: goto %000000da
+
+
+0000010a: sub free(free_ptr)
+000001d4: free_ptr :: in out u32 = R0
+00000100: 
+00000103: R12 := 0x10908
+00000106: R12 := R12 + 0xA10
+00000107: v993 := R12
+00000109: goto mem[v993 + 0xD04, el]:u32
+
+
+00000139: sub if_statement()
+0000010b: 
+0000010c: v943 := SP
+0000010d: mem := mem with [v943 + 0xFFFFFFFC, el]:u32 <- LR
+0000010e: mem := mem with [v943 + 0xFFFFFFF8, el]:u32 <- R11
+0000010f: SP := SP - 8
+00000112: R11 := SP + 4
+00000115: SP := SP - 8
+00000116: R0 := 0x59
+00000117: LR := 0x10440
+00000118: call @malloc with return %00000119
+
+00000119: 
+0000011a: R3 := R0
+0000011b: mem := mem with [R11 + 0xFFFFFFF8, el]:u32 <- R3
+0000011c: R3 := 2
+0000011d: mem := mem with [R11 + 0xFFFFFFF4, el]:u32 <- R3
+0000011e: R3 := mem[R11 + 0xFFFFFFF4, el]:u32
+0000011f: v899 := R3
+00000121: v897 := R3 - 3
+00000123: VF := high:1[(v899 ^ 3) & (v899 ^ v897)]
+00000124: NF := high:1[v897]
+00000125: ZF := v897 = 0
+00000126: when ~ZF & NF = VF goto %0000012c
+00000127: goto %00000128
+
+00000128: 
+00000129: R3 := 0x21
+0000012a: mem := mem with [R11 + 0xFFFFFFF4, el]:u32 <- R3
+0000012b: goto %0000012c
+
+0000012c: 
+0000012d: R0 := mem[R11 + 0xFFFFFFF8, el]:u32
+0000012e: LR := 0x1046C
+0000012f: call @free with return %00000130
+
+00000130: 
+00000131: R0 := R0
+00000134: SP := R11 - 4
+00000135: v839 := SP
+00000136: R11 := mem[v839, el]:u32
+00000137: SP := SP + 8
+00000138: goto mem[v839 + 4, el]:u32
+
+
+00000150: sub main(main_argc, main_argv, main_result)
+000001d5: main_argc :: in u32 = R0
+000001d6: main_argv :: in out u32 = R1
+000001d7: main_result :: out u32 = R0
+0000013a: 
+0000013b: v673 := SP
+0000013c: mem := mem with [v673 + 0xFFFFFFFC, el]:u32 <- LR
+0000013d: mem := mem with [v673 + 0xFFFFFFF8, el]:u32 <- R11
+0000013e: SP := SP - 8
+00000141: R11 := SP + 4
+00000142: LR := 0x10588
+00000143: call @if_statement with return %00000144
+
+00000144: 
+00000145: LR := 0x1058C
+00000146: call @for_loop with return %00000147
+
+00000147: 
+00000148: LR := 0x10590
+00000149: call @nested_for_loop with return %0000014a
+
+0000014a: 
+0000014b: R0 := R0
+0000014c: v909 := SP
+0000014d: R11 := mem[v909, el]:u32
+0000014e: SP := SP + 8
+0000014f: goto mem[v909 + 4, el]:u32
+
+
+0000015b: sub malloc(malloc_size, malloc_result)
+000001d8: malloc_size :: in u32 = R0
+000001d9: malloc_result :: out u32 = R0
+00000151: 
+00000154: R12 := 0x10914
+00000157: R12 := R12 + 0xA10
+00000158: v1007 := R12
+0000015a: goto mem[v1007 + 0xCFC, el]:u32
+
+
+000001b1: sub nested_for_loop()
+0000015c: 
+0000015d: v765 := SP
+0000015e: mem := mem with [v765 + 0xFFFFFFFC, el]:u32 <- LR
+0000015f: mem := mem with [v765 + 0xFFFFFFF8, el]:u32 <- R11
+00000160: SP := SP - 8
+00000163: R11 := SP + 4
+00000166: SP := SP - 0x10
+00000167: R0 := 0x59
+00000168: LR := 0x104F8
+00000169: call @malloc with return %0000016a
+
+0000016a: 
+0000016b: R3 := R0
+0000016c: mem := mem with [R11 + 0xFFFFFFEC, el]:u32 <- R3
+0000016d: R3 := 0x22
+0000016e: mem := mem with [R11 + 0xFFFFFFF8, el]:u32 <- R3
+0000016f: R3 := 0
+00000170: mem := mem with [R11 + 0xFFFFFFF4, el]:u32 <- R3
+00000171: goto %00000172
+
+00000172: 
+00000173: R3 := mem[R11 + 0xFFFFFFF4, el]:u32
+00000174: v871 := R3
+00000176: v869 := R3 - 0x63
+00000178: VF := high:1[(v871 ^ 0x63) & (v871 ^ v869)]
+00000179: NF := high:1[v869]
+0000017a: ZF := v869 = 0
+0000017b: when ZF | NF <> VF goto %0000018a
+0000017c: goto %0000017d
+
+0000017d: 
+0000017e: R0 := mem[R11 + 0xFFFFFFEC, el]:u32
+0000017f: LR := 0x10570
+00000180: call @free with return %00000181
+
+00000181: 
+00000182: R0 := R0
+00000185: SP := R11 - 4
+00000186: v689 := SP
+00000187: R11 := mem[v689, el]:u32
+00000188: SP := SP + 8
+00000189: goto mem[v689 + 4, el]:u32
+
+0000018a: 
+0000018b: R3 := 0
+0000018c: mem := mem with [R11 + 0xFFFFFFF0, el]:u32 <- R3
+0000018d: goto %0000018e
+
+0000018e: 
+0000018f: R3 := mem[R11 + 0xFFFFFFF0, el]:u32
+00000190: v847 := R3
+00000192: v845 := R3 - 0xC7
+00000194: VF := high:1[(v847 ^ 0xC7) & (v847 ^ v845)]
+00000195: NF := high:1[v845]
+00000196: ZF := v845 = 0
+00000197: when ZF | NF <> VF goto %000001a0
+00000198: goto %00000199
+
+00000199: 
+0000019a: R3 := mem[R11 + 0xFFFFFFF4, el]:u32
+0000019d: R3 := R3 + 1
+0000019e: mem := mem with [R11 + 0xFFFFFFF4, el]:u32 <- R3
+0000019f: goto %00000172
+
+000001a0: 
+000001a1: R2 := mem[R11 + 0xFFFFFFF4, el]:u32
+000001a2: R3 := mem[R11 + 0xFFFFFFF0, el]:u32
+000001a5: R3 := R2 + R3
+000001a6: R2 := mem[R11 + 0xFFFFFFF8, el]:u32
+000001a9: R3 := R2 + R3
+000001aa: mem := mem with [R11 + 0xFFFFFFF8, el]:u32 <- R3
+000001ab: R3 := mem[R11 + 0xFFFFFFF0, el]:u32
+000001ae: R3 := R3 + 1
+000001af: mem := mem with [R11 + 0xFFFFFFF0, el]:u32 <- R3
+000001b0: goto %0000018e
+
+
+000001bf: sub sub_103ac()
+000001b2: 
+000001b3: R3 := mem[0x103C4, el]:u32
+000001b6: v727 := R3
+000001ba: ZF := v727 = 0
+000001bb: when ZF return LR
+000001bc: goto %000001bd
+
+000001bd: 
+000001be: goto R3
+
+
+000001cd: sub sub_103e4()
+000001c0: 
+000001c1: R3 := mem[0x103FC, el]:u32
+000001c4: v653 := R3
+000001c8: ZF := v653 = 0
+000001c9: when ZF return LR
+000001ca: goto %000001cb
+
+000001cb: 
+000001cc: goto R3
+
+
+
