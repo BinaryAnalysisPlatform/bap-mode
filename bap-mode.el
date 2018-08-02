@@ -1,11 +1,12 @@
 ;;; bap-mode.el --- Major-mode for BAP's BIR Intermediate Representation
 ;;
+;; Copyright (c) 2017 Henrik Lissner (since based on emacs-mips-mode)
 ;; Copyright (C) 2018 Thomas Barabosch
 ;;
 ;; Author: Thomas Barabosch <http://github/tbarabosch>
-;; Maintainer: Thomas Barabosch <thomas.barabosch@gmail.com>
+;; Maintainer: Thomas Barabosch <thomas.barabosch@fkie.fraunhofer.de>
 ;; Created: January 18, 2018
-;; Modified: January 18, 2018
+;; Modified: August 02, 2018
 ;; Version: 0.1
 ;; Keywords: BAP BIR
 ;; Homepage: https://github.com/fkie-cad/bap-mode
