@@ -1,4 +1,5 @@
 # bap-mode: an Emacs major mode for BAP's IR
+[![MELPA](https://melpa.org/packages/bap-mode-badge.svg)](https://melpa.org/#/bap-mode)
 
 ## What is bap-mode?
 
