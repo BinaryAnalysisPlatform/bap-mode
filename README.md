@@ -12,7 +12,7 @@ bap-mode is avilable on [Melpa](https://melpa.org/). Install it with `M-x packag
 ## How to use bap-mode?
 
 The following keybindings are defined per default:
-- `C-c C-b d` *bap-goto-function-definition*: jump to a function definition
+- `C-c C-b d` *bap-goto-function-definition*: jump to a function definition (presents function candidates with Helm)
 - `C-c C-b l` *bap-goto-label*: jump to a label
 - `C-c C-b m` *bap-goto-main*: jump to main function
 - `C-c C-b o` *bap-open-file*: opens a binary with BAP and emits the IR
@@ -21,7 +21,7 @@ The following keybindings are defined per default:
 ## Future work
 
 Some of the things that would be nice to have are:
-- jump to definition at point
+- jump to definition at point (function or address)
 
 As always on github, pull requests are welcomed!
 
