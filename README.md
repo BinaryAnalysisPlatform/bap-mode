@@ -7,7 +7,7 @@ bap-mode is an Emacs major mode for reading and analyzing programs in [BAP](http
 
 ## How to install bap-mode?
 
-bap-mode is avilable on [Melpa](https://melpa.org/). Install it with `M-x package-install <RET> bap-mode <RET>`.
+bap-mode is avilable on [Melpa](https://melpa.org/). Install it with `M-x package-install <RET> bap-mode <RET>`. bap-mode requires [Helm](https://emacs-helm.github.io/helm/).
 
 ## How to use bap-mode?
 
@@ -21,7 +21,6 @@ The following keybindings are defined per default:
 ## Future work
 
 Some of the things that would be nice to have are:
-- helm support for better navigation
 - jump to definition at point
 
 As always on github, pull requests are welcomed!
@@ -34,7 +33,7 @@ This project is partly financed by [German Federal Office for Information Securi
     The MIT License (MIT)
 
     bap-mode
-    Copyright (C) 2018 Thomas Barabosch of Fraunhofer FKIE
+    Copyright (C) 2018 - 2019 Thomas Barabosch of Fraunhofer FKIE
     
     Based on emacs-mips-mode
     Copyright (c) 2017 Henrik Lissner

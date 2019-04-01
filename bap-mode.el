@@ -1,13 +1,13 @@
 ;;; bap-mode.el --- Major-mode for BAP's IR
 ;;
 ;; Copyright (c) 2017 Henrik Lissner (since based on emacs-mips-mode)
-;; Copyright (C) 2018 Thomas Barabosch
+;; Copyright (C) 2018 - 2019 Thomas Barabosch
 ;;
 ;; Author: Thomas Barabosch <http://github/tbarabosch>
 ;; Maintainer: Thomas Barabosch <thomas.barabosch@fkie.fraunhofer.de>
 ;; Created: January 18, 2018
-;; Modified: August 02, 2018
-;; Version: 0.1
+;; Modified: April 01, 2019
+;; Version: 0.2
 ;; Keywords: languages
 ;; Homepage: https://github.com/fkie-cad/bap-mode
 ;;
@@ -19,6 +19,8 @@
 ;; Binary Analysis Platform (BAP).
 ;;
 ;;; Code:
+
+(require 'helm)
 
 (defgroup bap nil
   "Major mode for reading BAP's BIR"
@@ -118,14 +120,23 @@
 (defun bap-goto-main ()
   "Jumps to main function."
   (interactive)
-  (bap-goto-function-definition "main"))
+  (goto-char (point-min))
+  (re-search-forward "sub main"))
 
-(defun bap-goto-function-definition (&optional definition)
+(defun bap-goto-function-definition ()
   "Jumps to a user-specified function definition, if no DEFINITION is provided to the function."
   (interactive)
-  (let ((definition (or definition (read-minibuffer "Go to Function Definition: "))))
+  (let ((definition (helm
+                                    :sources (helm-build-in-buffer-source "bap-mode functions"
+                   :data (current-buffer)
+                   :candidate-transformer (lambda (candidates)
+                                            (cl-loop for c in candidates
+                                                     when (string-match "sub" c)
+                                                     collect c))
+                   :get-line #'buffer-substring)
+                                    :buffer "Function candidates")))
     (goto-char (point-min))
-(re-search-forward (format "sub %s(" definition))))
+(re-search-forward (format "%s" definition))))
 
 (defun bap-open-file ()
   "Opens a user-specified file with BAP and emits the IR."
@@ -134,7 +145,8 @@
     (with-output-to-temp-buffer (format "%s.bir" filename)
       (insert (shell-command (format "bap %s -d" filename) (format "%s.bir" filename)))
       (pop-to-buffer (format "%s.bir" filename))
-      (bap-mode))))
+      (bap-mode)
+      (bap-goto-main))))
 
 (defun bap-open-file-with-extra-pass ()
   "Opens a user-specified file with BAP using a user-spcified pass and emits the IR."
@@ -144,7 +156,8 @@
     (with-output-to-temp-buffer (format "%s.bir" filename)
       (insert (shell-command (format "bap %s --pass=%s -d" filename passnames) (format "%s.bir" filename)))
       (pop-to-buffer (format "%s.bir" filename))
-      (bap-mode))))
+      (bap-mode)
+      (bap-goto-main))))
 
 ;;;###autoload
 (define-derived-mode bap-mode prog-mode "BAP"
