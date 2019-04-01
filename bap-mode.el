@@ -140,7 +140,7 @@
   "Opens a user-specified file with BAP using a user-spcified pass and emits the IR."
   (interactive)
   (let ((filename (expand-file-name (read-file-name "File to Open: ")))
-	(passnames (read-minibuffer "Select passes to run BAP with, e.g. callsites or callsites,run: ")))
+	(passnames (read-minibuffer "Select passes to run BAP with, e.g. callsites or ssa: ")))
     (with-output-to-temp-buffer (format "%s.bir" filename)
       (insert (shell-command (format "bap %s --pass=%s -d" filename passnames) (format "%s.bir" filename)))
       (pop-to-buffer (format "%s.bir" filename))
