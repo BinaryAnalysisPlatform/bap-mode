@@ -100,6 +100,10 @@
      (,(regexp-opt bap-defs) . font-lock-preprocessor-face)
      )))
 
+(defvar bap-imenu-generic-expression
+  `((nil ,(format "%s%s%s" "\\([a-f0-9]+\\): " (regexp-opt bap-defs) " \\(.*\\)") 2))
+  "Imenu generic expression for ‘bap-mode’.")
+
 (defvar bap-map
   (let ((map (make-keymap)))
     (define-key map (kbd "C-c C-b l") 'bap-goto-label)
@@ -161,8 +165,9 @@
 
 ;;;###autoload
 (define-derived-mode bap-mode prog-mode "BAP"
-  "Major mode for reading BIR's BIR intermediate representation."
+  "Major mode for reading BAP's BIR intermediate representation."
   (setq font-lock-defaults bap-font-lock-defaults)
+  (setq-local imenu-generic-expression bap-imenu-generic-expression)
   (use-local-map bap-map))
 
 ;;;###autoload
